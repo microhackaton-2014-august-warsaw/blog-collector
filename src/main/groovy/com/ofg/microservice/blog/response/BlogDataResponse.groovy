@@ -8,12 +8,12 @@ import groovy.transform.TypeChecked
 class BlogDataResponse {
 
     String rssUrl
-    Long pairId
+    String pairId
 
     Collection<String> posts = new ArrayList<>()
     Collection<String> titles = new ArrayList<>()
 
-    BlogDataResponse(Long pairId, String rssUrl) {
+    BlogDataResponse(String pairId, String rssUrl) {
         this.pairId = pairId
         this.rssUrl = rssUrl
     }

@@ -9,7 +9,7 @@ class RssFetchRequest extends BaseActorMessage {
 
     String rssUrl
 
-    RssFetchRequest(String rssUrl, Long pairId, String correlationId) {
+    RssFetchRequest(String rssUrl, String pairId, String correlationId) {
         super(pairId, correlationId)
         this.rssUrl = rssUrl
     }

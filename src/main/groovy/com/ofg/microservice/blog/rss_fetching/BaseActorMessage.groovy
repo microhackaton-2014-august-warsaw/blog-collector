@@ -7,6 +7,6 @@ import groovy.transform.TypeChecked
 @Canonical
 abstract class BaseActorMessage {
 
-    Long pairId
+    String pairId
     String correlationId
 }

@@ -8,5 +8,5 @@ import groovy.transform.TypeChecked
 class BlogDataCollectorRequest {
 
     String rssUrl
-    long pairId
+    String pairId
 }

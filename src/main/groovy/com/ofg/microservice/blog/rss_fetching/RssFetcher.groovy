@@ -38,7 +38,7 @@ public class RssFetcher extends UntypedActor {
             log.info("Fetched " + feed.entries.size() + " after " + executionTime + " ms")
             this.context.system().eventStream()
                     .publish(new RssData(fetchRequest.rssUrl, feed, fetchRequest.pairId, fetchRequest.correlationId))
-        } catch (MalformedURLException | FetcherException e) {
+        } catch (MalformedURLException | UnknownHostException | FetcherException e) {
             log.error("Non existing rss url " + fetchRequest.rssUrl)
         }
     }
