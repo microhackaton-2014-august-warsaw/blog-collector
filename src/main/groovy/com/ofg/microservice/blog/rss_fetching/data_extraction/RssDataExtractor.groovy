@@ -59,7 +59,7 @@ class RssDataExtractor extends UntypedActor {
         com.google.common.base.Optional<String> analyzerUrlOptional = serviceResolver.getUrl(ANALYZER_NAME)
         if (analyzerUrlOptional.isPresent()) {
             log.info("Sending data for pairId " + blogDataResponse.pairId)
-            restTemplate.put(analyzerUrlOptional.get() + "/api/{pairId}", createEntity(blogDataResponse), blogDataResponse.pairId)
+            restTemplate.put("http://54.73.40.79:9109"+ "/api/{pairId}", createEntity(blogDataResponse), blogDataResponse.pairId)
             log.info("Sending data for pairId " + blogDataResponse.pairId + " successful")
         } else {
             log.error("No instance of " + ANALYZER_NAME + " found")
