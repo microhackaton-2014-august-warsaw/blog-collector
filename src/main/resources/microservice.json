@@ -2,7 +2,7 @@
     "pl": {
         "this": "pl/microhackaton/blog-collector",
         "dependencies": {
-            "blog-topics-analyzer": "pl/mickrohackaton/blogger-topics-analyzer"
+            "blog-topics-analyzer": "pl/microhackaton/blog-topics-analyzer"
         }
     }
 }
