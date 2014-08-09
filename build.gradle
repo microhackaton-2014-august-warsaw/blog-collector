@@ -96,7 +96,6 @@ repositories {
 }
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-social-twitter:$springBootVersion"
     compile "org.springframework:spring-context-support:$springVersion"
     compile 'org.apache.httpcomponents:httpclient:4.3.4'
     compile 'net.sf.ehcache:ehcache:2.8.3'
@@ -116,6 +115,8 @@ dependencies {
     compile "org.aspectj:aspectjrt:$aspectjVersion"
     compile 'org.apache.ivy:ivy:2.3.0'
     compile "com.mangofactory:swagger-springmvc:0.8.4"
+    compile "com.rometools:rome-fetcher:1.5.0"
+    compile group: 'com.typesafe.akka', name: 'akka-actor_2.10', version: '2.3.4'
     // microservices
     compile("com.ofg:micro-deps-spring-config:$microDepsSpringVersion") {
         exclude group: 'org.slf4j'
