@@ -17,5 +17,3 @@ And it will hit analyzers at /{pairId} with data extracted from given blog
     TO BE DEFINED
 
 ```
-
-Response will be sent to the ActiveMQ.
