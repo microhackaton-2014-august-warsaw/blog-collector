@@ -7,7 +7,7 @@ import com.rometools.fetcher.impl.HttpURLFeedFetcher
 import com.rometools.rome.feed.synd.SyndFeed
 import groovy.transform.TypeChecked
 import groovy.util.logging.Slf4j
-import org.jboss.logging.MDC
+import org.slf4j.MDC
 
 import java.util.concurrent.TimeUnit
 
@@ -34,7 +34,7 @@ public class RssFetcher extends UntypedActor {
         long executionTime = stopwatch.stop().elapsed(TimeUnit.MILLISECONDS)
         log.info("Fetched " + feed.entries.size() + " after " + executionTime + " ms")
         this.context.system().eventStream()
-                .publish(new RssData(feed, fetchRequest.pairId, fetchRequest.correlationId))
+                .publish(new RssData(fetchRequest.rssUrl, feed, fetchRequest.pairId, fetchRequest.correlationId))
     }
 
 

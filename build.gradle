@@ -116,7 +116,8 @@ dependencies {
     compile 'org.apache.ivy:ivy:2.3.0'
     compile "com.mangofactory:swagger-springmvc:0.8.4"
     compile "com.rometools:rome-fetcher:1.5.0"
-    compile group: 'com.typesafe.akka', name: 'akka-actor_2.10', version: '2.3.4'
+    compile 'com.typesafe.akka:akka-actor_2.10:2.3.4'
+    compile 'org.jsoup:jsoup:1.7.3'
     // microservices
     compile("com.ofg:micro-deps-spring-config:$microDepsSpringVersion") {
         exclude group: 'org.slf4j'

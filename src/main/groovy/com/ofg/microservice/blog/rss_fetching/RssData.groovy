@@ -7,10 +7,12 @@ import groovy.transform.TypeChecked
 @TypeChecked
 @Canonical
 class RssData extends BaseActorMessage {
+    String rssUrl
     SyndFeed feed
 
-    RssData(SyndFeed feed, Long pairId, String correlationId) {
+    RssData(String rssUrl, SyndFeed feed, Long pairId, String correlationId) {
         super(pairId, correlationId)
+        this.rssUrl = rssUrl
         this.feed = feed
     }
 }
