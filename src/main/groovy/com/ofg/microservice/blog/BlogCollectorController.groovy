@@ -27,6 +27,7 @@ class BlogCollectorController {
         String url = URLDecoder.decode(encodedBlogUrl, "UTF-8")
         log.info("Received request with " + url + " and " + pairId)
 
+        //TODO Replace with real url from call
         blogCollectorActorSystem.getActorSystem().eventStream()
                 .publish(new RssFetchRequest("http://tomaszdziurko.pl/feed/", pairId,
                 CorrelationIdHolder.get()))

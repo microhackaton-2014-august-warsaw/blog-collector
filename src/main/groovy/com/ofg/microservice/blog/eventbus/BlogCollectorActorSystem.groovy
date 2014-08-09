@@ -5,6 +5,8 @@ import akka.actor.ActorSystem
 import akka.actor.Props
 import akka.routing.FromConfig
 import akka.routing.RoundRobinRouter
+import com.ofg.microservice.blog.rss_fetching.RssData
+import com.ofg.microservice.blog.rss_fetching.RssDataExtractor
 import com.ofg.microservice.blog.rss_fetching.RssFetchRequest
 import com.ofg.microservice.blog.rss_fetching.RssFetcher
 import groovy.transform.TypeChecked
@@ -22,11 +24,16 @@ class BlogCollectorActorSystem {
         log.info("Initializing ActorSystem")
         actorSystem = ActorSystem.create("BlogCollectorActorSystem")
 
-        ActorRef router = actorSystem.actorOf(Props.create(RssFetcher)
+        ActorRef fetcherRouter = actorSystem.actorOf(Props.create(RssFetcher)
                 .withRouter(new RoundRobinRouter(5)),
                 "RssFetcher");
 
-        actorSystem.eventStream().subscribe(router, RssFetchRequest)
+        ActorRef rssDataExtractorRouter = actorSystem.actorOf(Props.create(RssDataExtractor)
+                .withRouter(new RoundRobinRouter(5)),
+                "RssDataExtractor");
+
+        actorSystem.eventStream().subscribe(fetcherRouter, RssFetchRequest)
+        actorSystem.eventStream().subscribe(rssDataExtractorRouter, RssData)
     }
 
     ActorSystem getActorSystem() {
