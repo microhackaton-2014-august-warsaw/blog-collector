@@ -7,11 +7,11 @@ import groovy.transform.TypeChecked
 @Canonical
 class BlogDataResponse {
 
-    private String rssUrl
-    private Long pairId
+    String rssUrl
+    Long pairId
 
-    private Collection<String> posts = new ArrayList<>()
-    private Collection<String> titles = new ArrayList<>()
+    Collection<String> posts = new ArrayList<>()
+    Collection<String> titles = new ArrayList<>()
 
     BlogDataResponse(Long pairId, String rssUrl) {
         this.pairId = pairId
