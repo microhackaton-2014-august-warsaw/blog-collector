@@ -1,7 +1,9 @@
-package com.ofg.microservice.blog.rss_fetching
+package com.ofg.microservice.blog.rss_fetching.data_extraction
 
 import akka.actor.UntypedActor
+import com.ofg.infrastructure.discovery.ServiceResolver
 import com.ofg.infrastructure.web.filter.correlationid.CorrelationIdHolder
+import com.ofg.infrastructure.web.resttemplate.RestTemplate
 import com.ofg.microservice.blog.response.BlogDataResponse
 import com.ofg.microservice.blog.utils.HtmlOgolator
 import groovy.transform.TypeChecked
@@ -11,6 +13,14 @@ import org.slf4j.MDC
 @TypeChecked
 @Slf4j
 class RssDataExtractor extends UntypedActor {
+
+    private RestTemplate restTemplate
+    private ServiceResolver serviceResolver
+
+    RssDataExtractor(ServiceResolver serviceResolver, RestTemplate restTemplate) {
+        this.serviceResolver = serviceResolver
+        this.restTemplate = restTemplate
+    }
 
     @Override
     public void onReceive(Object message) {

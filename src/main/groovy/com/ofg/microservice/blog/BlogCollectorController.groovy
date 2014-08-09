@@ -22,7 +22,8 @@ class BlogCollectorController {
     }
 
     @ResponseStatus(value = HttpStatus.OK)
-    @RequestMapping(value = "/blogs/{encodedBlogUrl}/{pairId}", produces="application/json", method = RequestMethod.GET)
+    @RequestMapping(value = "/blogs/{encodedBlogUrl}/{pairId}", produces="application/json",
+            method = RequestMethod.GET)
     void getBlogs(@PathVariable String encodedBlogUrl, @PathVariable Long pairId) {
         String url = URLDecoder.decode(encodedBlogUrl, "UTF-8")
         log.info("Received request with " + url + " and " + pairId)

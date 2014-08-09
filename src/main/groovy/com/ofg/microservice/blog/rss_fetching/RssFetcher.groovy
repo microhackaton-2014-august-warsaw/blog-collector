@@ -3,6 +3,7 @@ package com.ofg.microservice.blog.rss_fetching
 import akka.actor.UntypedActor
 import com.google.common.base.Stopwatch
 import com.ofg.infrastructure.web.filter.correlationid.CorrelationIdHolder
+import com.ofg.microservice.blog.rss_fetching.data_extraction.RssData
 import com.rometools.fetcher.impl.HttpURLFeedFetcher
 import com.rometools.rome.feed.synd.SyndFeed
 import groovy.transform.TypeChecked
