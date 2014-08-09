@@ -1,8 +1,7 @@
 {
     "pl": {
-        "this": "pl/microhackaton/blog-collector"
-//        "dependencies": {
-//            "analyzer" : "pl/microhackaton/twitter-places-analyzer"
-//        }
+        "this": "pl/microhackaton/blog-collector",
+        "dependencies": {
+        }
     }
 }
